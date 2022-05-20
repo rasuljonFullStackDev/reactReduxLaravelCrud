@@ -1,0 +1,26 @@
+@import 'antd/dist/antd.css';
+
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    
+}
+.register{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0 , 0, 0, 0.2);
+
+}
+#formChild{
+    width: 420px;
+    background: rgba(255, 255, 255, 1);
+    padding: 20px;
+    text-align: center;
+
+}
