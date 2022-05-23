@@ -1,8 +1,11 @@
 import React from 'react'
+import { Header } from '../Componets/AllComponets'
 
 const Welcome = () => {
   return (
-    <div>Welcome</div>
+    <div>
+      <Header/>
+    </div>
   )
 }
 

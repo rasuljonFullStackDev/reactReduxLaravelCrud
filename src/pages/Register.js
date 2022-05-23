@@ -2,10 +2,11 @@ import { useState } from 'react';
 import axios from 'axios';
 import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined, PhoneOutlined } from '@ant-design/icons';
-import { useForm } from 'antd/lib/form/Form';
 import Swal from 'sweetalert2';
-
+import { useDispatch } from 'react-redux';
+import { profileSend } from '../Redux/action/action';
 const Register = () => {
+    const dispatch = useDispatch();
     const [auth, setAuth] = useState(false);
     const [forget, setForget] = useState(false);
     const onFinish = async (values) => {
@@ -21,6 +22,7 @@ const Register = () => {
                     icon: 'success',
                     confirmButtonText: 'Cool'
                 })
+                dispatch(profileSend(res.data))
             }
         } else {
             let res = await axios.post('api/register', values)
@@ -35,6 +37,9 @@ const Register = () => {
                     icon: 'success',
                     confirmButtonText: 'Cool'
                 })
+                dispatch(profileSend(res.data))
+
+                
             }
         }
     };
@@ -89,22 +94,6 @@ const Register = () => {
                                             prefix={<LockOutlined className="site-form-item-icon" />}
                                             type="email"
                                             placeholder="email"
-                                        />
-                                    </Form.Item>
-                                    <Form.Item
-                                        name="phone"
-                                        rules={[
-                                            {
-                                                required: true,
-                                                message: 'Please input your phone!',
-                                            },
-                                        ]}
-                                        hasFeedback
-                                    >
-                                        <Input
-                                            prefix={<PhoneOutlined className="site-form-item-icon" />}
-                                            type="tel"
-                                            placeholder="phone"
                                         />
                                     </Form.Item>
                                 </>
