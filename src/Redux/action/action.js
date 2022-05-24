@@ -6,3 +6,8 @@ export const profileSend = (data) =>{
         payload:data,
     }
 }
+export const logout = () =>{
+    return{
+        type:actionTypes.logout,
+    }
+}

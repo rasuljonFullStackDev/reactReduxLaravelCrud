@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect } from 'react'
+import React, { useEffect } from 'react'
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Register from './pages/Register';
@@ -11,8 +11,8 @@ axios.defaults.headers.post['Content-Type'] = "aplication/json";
 axios.defaults.headers.post['Accept'] = "aplication/json";
 axios.defaults.withCredentials = true;
 axios.interceptors.request.use(function (config) {
-  const token = localStorage.getItem('token');
-  config.headers.Authorization = token ? `Bearer ${token}` : ''
+  const token = JSON.parse(localStorage.getItem('profile')) || "";
+  config.headers.Authorization = token ? `Bearer ${token.token}` : ''
   return config
 });
 const App = () => {
@@ -20,7 +20,9 @@ const App = () => {
   console.log(state);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(profileSend(JSON.parse(localStorage.getItem('profile'))) || "")
+    if(localStorage.getItem('profile')){
+      dispatch(profileSend(JSON.parse(localStorage.getItem('profile'))) || "")
+    }
   }, [])
   return (
     <div>

@@ -1,7 +1,10 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Avatar, Button, Modal, PageHeader, Tooltip } from 'antd';
 import { AntDesignOutlined,LogoutOutlined } from '@ant-design/icons';
 import { useState } from 'react';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import { logout } from '../Redux/action/action';
 export const Header = () => {
     const profile = useSelector(state => state.rootReducers.profile);
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -15,6 +18,23 @@ export const Header = () => {
     const showModal = () => {
         setIsModalVisible(true);
     };
+    // profilfdan chiqish
+    const dispatch = useDispatch();
+    const logut = () =>{
+        axios.get('/sanctum/csrf-cookie').then(response => {
+            axios.post('/api/logout').then(res => {
+                if(res.status===200 && res.data.xabar){
+                    Swal.fire({
+                        title: 'Tabriklaymiz!',
+                        text: res.data.xabar,
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                    dispatch(logout());
+                }
+            });
+        });
+    }
     return (
         <>
             <PageHeader
@@ -55,7 +75,7 @@ export const Header = () => {
                         />
                     </Tooltip>
                    <div>
-                   <Button type='danger'>
+                   <Button type='danger' onClick={logut}>
                     <LogoutOutlined />
                     </Button>
                    </div>
