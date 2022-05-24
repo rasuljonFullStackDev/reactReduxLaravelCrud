@@ -53,7 +53,8 @@ body {
 
 } */
 .center{
-    display: flex;
+    /* display: flex; */
+    text-align: center;
     justify-content: center;
     align-content: center;
     /* flex-direction: column; */

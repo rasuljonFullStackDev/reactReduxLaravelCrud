@@ -11,3 +11,9 @@ export const logout = () =>{
         type:actionTypes.logout,
     }
 }
+export const profileEdit = (data) =>{
+    return{
+        type:actionTypes.profileEdit,
+        payload:data,
+    }
+}

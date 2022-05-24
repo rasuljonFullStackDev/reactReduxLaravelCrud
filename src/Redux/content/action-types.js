@@ -1,6 +1,7 @@
 export const actionTypes = {
     profile: 'profile',
     add: 'add',
-    logout:'logout'
+    logout:'logout',
+    profileEdit:'profileEdit'
 
 }

@@ -19,6 +19,13 @@ export const rootReducers = (state=initialState,{type,payload}) =>{
             ...state,
             profile:null
         }
+        case actionTypes.profileEdit: 
+        let profileEdit = {...state.profile.user,img:payload};
+        localStorage.setItem('profile',JSON.stringify({...state.profile,user:profileEdit}))
+        return{
+            ...state,
+            profile:JSON.parse(localStorage.getItem("profile"))
+        }
             break;
     
         default: return state;
