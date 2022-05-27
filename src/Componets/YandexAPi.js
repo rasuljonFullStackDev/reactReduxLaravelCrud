@@ -1,47 +1,61 @@
-import React from 'react'
-import { YMaps, Map, Placemark } from 'react-yandex-maps'
-const YandexAPi = () => {
-  const load = (e) => {
-    console.log(e);
-  }
-  const state = {
-    center: [41.000085, 71.672579, 40.389420, 71.783009],
-    zoom: 7,
-  }
-  let map = null,
-    ymaps = null,
-    route = null;
-  const mapState = { center: [55.76, 37.64], zoom: 9, controls: [] };
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { Button, Checkbox, Form, Input } from 'antd';
 
-
-  const handleApiAvaliable = ymaps => {
-    ymaps = ymaps;
-    console.log(ymaps.state);
-    console.log(ymaps);
-    let s = ymaps
+const YandexApi = () => {
+  const onFinish = (values) => {
+    console.log('Received values of form: ', values);
   };
-  const geo = (e) => {
-    console.log(e);
-  }
-  const coordinates = [
-    [55.684758, 37.738521],
-    [57.684758, 39.738521]
-  ];
+
   return (
-    <div>
-      <YMaps onApiAvaliable={geo} >
-        <Map
-          state={mapState}
-          onLoad={load}
-          instanceRef={ref => handleApiAvaliable(ref)}
-        >
-          {coordinates.map(coordinate => <Placemark geometry={coordinate} />)}
 
-        </Map>
+   <div className='maps'>
+    <div className="maps_child">
+    <Form
+      name="normal_login"
+      className="login-form"
+      initialValues={{
+        remember: true,
+      }}
+      onFinish={onFinish}
+    >
+      <Form.Item
+        name="username"
+        rules={[
+          {
+            required: true,
+            message: 'Please input your Username!',
+          },
+        ]}
+      >
+        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+      </Form.Item>
+      <Form.Item
+        name="password"
+        rules={[
+          {
+            required: true,
+            message: 'Please input your Password!',
+          },
+        ]}
+      >
+        <Input
+          prefix={<LockOutlined className="site-form-item-icon" />}
+          type="password"
+          placeholder="Password"
+        />
+      </Form.Item>
+     
 
-      </YMaps>
+      <Form.Item>
+        <Button type="primary" htmlType="submit" className="login-form-button">
+          Log in
+        </Button>
+        
+      </Form.Item>
+    </Form>
     </div>
-  )
-}
+   </div>
+  );
+};
 
-export default YandexAPi
+export default YandexApi;

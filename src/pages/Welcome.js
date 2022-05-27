@@ -7,8 +7,8 @@ const Welcome = () => {
     <div>
       <Header />
       {/* <UserLocation/> */}
-      {/* <GoogleAPi /> */}
-      <YandexAPi/>
+      <GoogleAPi />
+      {/* <YandexAPi/> */}
     </div>
   )
 }

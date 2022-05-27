@@ -1,7 +1,8 @@
 import { actionTypes } from "../content/action-types";
 const initialState = {
     profile:JSON.parse(localStorage.getItem('profile')) || null,
-    data:[]
+    data:[],
+    key:"AIzaSyBYXm2jsrRlsvubN8vAB-RQf9DNgYKNmfM"  
 }
 
 
