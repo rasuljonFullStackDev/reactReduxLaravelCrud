@@ -60,3 +60,47 @@ body {
     /* flex-direction: column; */
 
 }
+.ymaps-2-1-79-map{
+    /* width: 10000px !important; */
+}
+.ymaps-2-1-79-image {
+    border-radius: 50% !important;
+}
+.ymaps-2-1-79-map-copyrights-promo, .ymaps-2-1-79-copyright__wrap {
+    display: none !important;
+}
+/* .ymaps-2-1-79-balloon {
+    transition: all 0.4s ease-in-out !important;
+}
+.ymaps-2-1-79-balloon__layout{
+    transition: all 0.4s ease-in-out !important;
+
+}
+.ymaps-2-1-79-balloon{ transition: all 0.4s ease-in-out !important;}
+ .ymaps-2-1-79-balloon_layout_normal{ transition: all 0.4s ease-in-out !important;}
+  .ymaps-2-1-79-balloon_to_top{ transition: all 0.4s ease-in-out !important;}
+   .ymaps-2-1-79-i-custom-scroll{ transition: all 0.4s ease-in-out !important;} */
+   .ymaps-2-1-79-balloon__close-button{
+       position: absolute;
+       top: 0;
+       right: 0;
+       padding: 10px;
+       background: url("../public/img/close.svg") center center/cover no-repeat !important;
+       color: white;
+       width: 70px !important;
+       height: 70px !important;
+   }
+   .ymaps-2-1-79-balloon__close+.ymaps-2-1-79-balloon__content{
+       margin-right: 0 !important;
+   }
+   .App {
+    font-family: sans-serif;
+    text-align: center;
+  }
+  
+  .layer {
+    width: 100%;
+    height: 300px;
+    border: 1px solid;
+  }
+  

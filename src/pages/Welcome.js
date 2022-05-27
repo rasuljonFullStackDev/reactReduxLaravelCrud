@@ -1,10 +1,14 @@
 import React from 'react'
-import { Header } from '../Componets/AllComponets'
-
+import { Header, UserLocation } from '../Componets/AllComponets'
+import GoogleAPi from "../Componets/GoogleAPi";
+import YandexAPi from "../Componets/YandexAPi"
 const Welcome = () => {
   return (
     <div>
-      <Header/>
+      <Header />
+      {/* <UserLocation/> */}
+      {/* <GoogleAPi /> */}
+      <YandexAPi/>
     </div>
   )
 }

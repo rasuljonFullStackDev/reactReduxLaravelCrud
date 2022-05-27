@@ -6,7 +6,7 @@ import Welcome from "./pages/Welcome";
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { profileSend } from "./Redux/action/action";
-axios.defaults.baseURL = 'http://127.0.0.1:8000/';
+axios.defaults.baseURL = 'https://powerful-anchorage-40100.herokuapp.com/';
 axios.defaults.headers.post['Content-Type'] = "aplication/json";
 axios.defaults.headers.post['Accept'] = "aplication/json";
 axios.defaults.withCredentials = true;
