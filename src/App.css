@@ -123,3 +123,9 @@ body {
       left: 0;
       z-index: 99;
   }
+  .forms{
+      padding: 30px;
+  }
+  .cols{
+      padding: 20px;
+  }
